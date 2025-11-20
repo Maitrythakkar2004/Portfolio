@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maitry Thakkar — Creative Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#071026;--card:#0f1724;--accent1:#6a11cb;--accent2:#2575fc;--glass:rgba(255,255,255,0.03);
+      --glass-2:rgba(255,255,255,0.02);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:linear-gradient(180deg,var(--bg),#031020);color:#e6eef8;min-height:100vh;}
+
+    /* NAV */
+    header{position:fixed;left:0;right:0;top:0;z-index:60;padding:18px 40px;background:linear-gradient(180deg,rgba(0,0,0,0.25),transparent);backdrop-filter:blur(6px);display:flex;justify-content:space-between;align-items:center}
+    .brand{font-family:Poppins,Inter;font-weight:700;font-size:20px;color:white}
+    nav ul{display:flex;gap:18px;list-style:none}
+    nav a{color:#bcd9ff;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    nav a:hover{color:white;background:rgba(255,255,255,0.02)}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:110px 40px 40px}
+    .hero-left h1{font-size:48px;line-height:1.02;margin-bottom:12px;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;color:transparent}
+    .hero-left p{color:#bcd9ff;margin-bottom:20px}
+    .cta{display:flex;gap:14px}
+    .btn{padding:12px 20px;border-radius:999px;font-weight:700;text-decoration:none}
+    .btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#d0e3ff}
+
+    /* HERO RIGHT CARD */
+    .profile-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:20px;border-radius:14px}
+    .avatar{
+      width:120px;height:120px;border-radius:16px;
+      background:#1a2337; /* placeholder */
+      background-size:cover;background-position:center;margin-bottom:12px
+    }
+
+    /* PROJECTS */
+    .section{padding:60px 40px}
+    .projects-wrap{max-width:1200px;margin:auto}
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+    .filters button{background:var(--glass);border:0;padding:8px 12px;border-radius:999px;color:#cfe3ff;cursor:pointer}
+    .filters button.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .card{background:var(--glass-2);padding:14px;border-radius:12px;cursor:pointer;transition:.28s}
+    .card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(6,12,30,0.6)}
+    .card img{width:100%;border-radius:8px;margin-bottom:12px}
+    .tag{font-size:12px;background:rgba(255,255,255,0.05);padding:6px 8px;border-radius:8px}
+
+    /* MODAL */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.7);z-index:120}
+    .modal.open{display:flex}
+    .modal-content{width:min(900px,96%);background:var(--glass);padding:20px;border-radius:12px}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+    .service{background:var(--glass-2);padding:18px;border-radius:12px}
+
+    /* CONTACT */
+    .contact-card{background:linear-gradient(90deg,rgba(106,17,203,0.06),rgba(37,117,252,0.04));padding:18px;border-radius:12px}
+    .contact-form{display:grid;gap:12px}
+    .contact-form input,.contact-form textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:8px;color:#dfefff}
+
+    footer{padding:30px 40px;text-align:center;color:#9fb8ff}
+
+    /* ANIMATION */
+    .reveal{opacity:0;transform:translateY(20px);transition:all .9s ease}
+    .reveal.active{opacity:1;transform:translateY(0)}
+
+    @media(max-width:980px){
+      .hero{grid-template-columns:1fr;padding-top:130px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="brand">Maitry</div>
+    <nav>
+      <ul>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+        <!-- UPDATED DOWNLOAD LINK -->
+        <li><a href="/mnt/data/Maitry Resume_new.pdf" download>Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-left reveal">
+        <h1>Hi, I'm <span style="background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;color:transparent">Maitry Thakkar</span><br>Creative Flutter Developer</h1>
+
+        <p>I design and build modern mobile apps and interactive portfolio websites with smooth animations, pixel-perfect UI, and clean code.</p>
+
+        <div class="cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#contact">Hire Me</a>
+        </div>
+      </div>
+
+      <aside class="hero-right reveal">
+        <div class="profile-card">
+          <div class="avatar"></div>
+          <h3>Maitry Thakkar</h3>
+          <p>Flutter Developer · UI/UX Designer</p>
+          <p style="margin-top:8px;color:#9fb8ff">MSc IT (2026) · BSc IT (2024)</p>
+
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <a class="btn ghost" href="mailto:maitrythakkar2004@gmail.com">Message</a>
+
+            <!-- UPDATED DOWNLOAD LINK -->
+            <a class="btn primary" href="/mnt/data/Maitry Resume_new.pdf" download>Download CV</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects-wrap reveal">
+
+      <h2>Selected Work</h2>
+      <p style="color:#9fb8ff">Filterable portfolio with animated hover cards.</p>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="uiux">UI/UX</button>
+        <button class="filter-btn" data-filter="flutter">Flutter</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+      </div>
+
+      <div class="grid" id="grid">
+
+        <div class="card" data-tags="uiux">
+          <img src="https://picsum.photos/seed/food/800/500">
+          <h4>Food Delivery App (UI/UX)</h4>
+          <span class="tag">UI/UX</span>
+        </div>
+
+        <div class="card" data-tags="uiux web">
+          <img src="https://picsum.photos/seed/ebook/800/500">
+          <h4>E-Book Store (Miro)</h4>
+          <span class="tag">UX</span>
+        </div>
+
+        <div class="card" data-tags="php web">
+          <img src="https://picsum.photos/seed/bank/800/500">
+          <h4>PHP Banking System</h4>
+          <span class="tag">Backend</span>
+        </div>
+
+        <div class="card" data-tags="flutter">
+          <img src="https://picsum.photos/seed/ecom/800/500">
+          <h4>E-Commerce App</h4>
+          <span class="tag">Flutter</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section reveal">
+      <h2>About Me</h2>
+      <p style="color:#9fb8ff;max-width:860px">
+        I'm a passionate Flutter developer and UI/UX designer from Ahmedabad.  
+        I build cross-platform apps and design user-friendly interfaces with research, wireframing, prototyping, and production-ready code.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section reveal">
+      <h2>Contact</h2>
+      <div class="contact-card" style="max-width:600px">
+        <form class="contact-form" id="contactForm">
+          <input type="text" id="name" placeholder="Your name" required>
+          <input type="email" id="email" placeholder="Your email" required>
+          <textarea id="message" placeholder="Message" rows="6" required></textarea>
+          <button type="submit" class="btn primary">Send Message</button>
+        </form>
+      </div>
+
+      <div style="margin-top:16px;color:#9fb8ff">
+        Email: <a href="mailto:maitrythakkar2004@gmail.com">maitrythakkar2004@gmail.com</a><br>
+        Phone: 9274751707 / 9687308184<br>
+        Location: Ahmedabad, India<br><br>
+
+        <!-- UPDATED DOWNLOAD LINK -->
+        <a class="btn ghost" href="/mnt/data/Maitry Resume_new.pdf" download>Download Resume</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button id="closeModal" style="float:right;background:transparent;border:0;color:white;font-weight:700">✕</button>
+      <img id="modalImg" src="">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc" style="color:#9fb8ff"></p>
+    </div>
+  </div>
+
+  <footer>© 2025 Maitry Thakkar · Built with passion</footer>
+
+  <script>
+    /* Reveal Animation */
+    const reveals=document.querySelectorAll('.reveal');
+    function reveal(){reveals.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-80) el.classList.add('active');});}
+    window.addEventListener('scroll',reveal);window.addEventListener('load',reveal);
+
+    /* Filters */
+    const filterBtns=document.querySelectorAll('.filter-btn');
+    const cards=document.querySelectorAll('.card');
+    filterBtns.forEach(btn=>{
+      btn.onclick=()=>{
+        filterBtns.forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const f=btn.dataset.filter;
+        cards.forEach(c=>{
+          c.style.display = (f==='all'||c.dataset.tags.includes(f))?'block':'none';
+        });
+      }
+    });
+
+    /* Modal */
+    const modal=document.getElementById('modal');
+    const modalImg=document.getElementById('modalImg');
+    const modalTitle=document.getElementById('modalTitle');
+    const modalDesc=document.getElementById('modalDesc');
+    document.querySelectorAll('.card').forEach(card=>{
+      card.onclick=()=>{
+        modalImg.src=card.querySelector('img').src;
+        modalTitle.textContent=card.querySelector('h4').textContent;
+        modalDesc.textContent="A project case study will be added here.";
+        modal.classList.add('open');
+      }
+    });
+    document.getElementById('closeModal').onclick=()=>modal.classList.remove('open');
+    modal.onclick=e=>{if(e.target===modal) modal.classList.remove('open');}
+
+    /* Contact Form */
+    document.getElementById('contactForm').onsubmit=e=>{
+      e.preventDefault();
+      alert("Message sent! (Demo)");
+      e.target.reset();
+    };
+  </script>
+
+</body>
+</html>
